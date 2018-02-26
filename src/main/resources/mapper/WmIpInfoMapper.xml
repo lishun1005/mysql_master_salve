@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lishun.mapper.WmIpInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.lishun.entity.WmIpInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+    <result column="info_hour" property="infoHour" jdbcType="INTEGER" />
+    <result column="info_count" property="infoCount" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="ip_addr" property="ipAddr" jdbcType="VARCHAR" />
+    <result column="info_day" property="infoDay" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, city_id, info_hour, info_count, create_time, ip_addr, info_day
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from wm_ip_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from wm_ip_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.lishun.entity.WmIpInfo" >
+    insert into wm_ip_info (id, city_id, info_hour, 
+      info_count, create_time, ip_addr, 
+      info_day)
+    values (#{id,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, #{infoHour,jdbcType=INTEGER}, 
+      #{infoCount,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, #{ipAddr,jdbcType=VARCHAR}, 
+      #{infoDay,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lishun.entity.WmIpInfo" >
+    insert into wm_ip_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="infoHour != null" >
+        info_hour,
+      </if>
+      <if test="infoCount != null" >
+        info_count,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr,
+      </if>
+      <if test="infoDay != null" >
+        info_day,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="infoHour != null" >
+        #{infoHour,jdbcType=INTEGER},
+      </if>
+      <if test="infoCount != null" >
+        #{infoCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="ipAddr != null" >
+        #{ipAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="infoDay != null" >
+        #{infoDay,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lishun.entity.WmIpInfo" >
+    update wm_ip_info
+    <set >
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="infoHour != null" >
+        info_hour = #{infoHour,jdbcType=INTEGER},
+      </if>
+      <if test="infoCount != null" >
+        info_count = #{infoCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="ipAddr != null" >
+        ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="infoDay != null" >
+        info_day = #{infoDay,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lishun.entity.WmIpInfo" >
+    update wm_ip_info
+    set city_id = #{cityId,jdbcType=VARCHAR},
+      info_hour = #{infoHour,jdbcType=INTEGER},
+      info_count = #{infoCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=DATE},
+      ip_addr = #{ipAddr,jdbcType=VARCHAR},
+      info_day = #{infoDay,jdbcType=DATE}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
