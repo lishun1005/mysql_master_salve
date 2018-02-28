@@ -18,8 +18,8 @@ import java.util.Random;
  * @Description: TODO
  * @date 2018/2/9
  */
-@Component
-@Aspect
+//@Component
+//@Aspect
 public class ServiceAspect implements PriorityOrdered {
 	@Pointcut("execution(public * com.lishun.service.*.*(..))")
 	public void dataSource(){};

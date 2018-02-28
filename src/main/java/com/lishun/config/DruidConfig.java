@@ -125,15 +125,15 @@ public class DruidConfig {
 			logger.error("druid configuration initialization filter", e);
 		}
 
-		Map<Object, Object> dsMap = new HashMap();
-		dsMap.put("read_ds_1", druidDataSource_read1());
-		dsMap.put("read_ds_2", druidDataSource_read2());
+		//Map<Object, Object> dsMap = new HashMap();
+		//dsMap.put("read_ds_1", druidDataSource_read1());
+		//dsMap.put("read_ds_2", druidDataSource_read2());
 
-		dsMap.put("write_ds", datasource);
+		//dsMap.put("write_ds", datasource);
 
-		DynamicDataSource dynamicDataSource = new DynamicDataSource();
-		dynamicDataSource.setTargetDataSources(dsMap);
-		return dynamicDataSource;
+		//DynamicDataSource dynamicDataSource = new DynamicDataSource();
+		//dynamicDataSource.setTargetDataSources(dsMap);
+		return datasource;
 	}
 
 	public DataSource druidDataSource_read1() {
